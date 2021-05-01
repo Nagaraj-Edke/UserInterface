@@ -45,6 +45,5 @@ body{
     color: rgba(255, 255, 255, 1)
 }
 .backBox{
-    background-image: url('../../../assets/signup-bg.jpg');
-   
+    background-image: url('../../../assets/images/signup-bg.jpg');
 }

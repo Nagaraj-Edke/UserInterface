@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Forms/login/login.component';
 import { RegisterComponent } from './Forms/register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './Forms/forgot-password/forgot-password.component';
 import { PageNotFoundComponent } from './Forms/page-not-found/page-not-found.component';
 
@@ -22,7 +22,7 @@ import { PageNotFoundComponent } from './Forms/page-not-found/page-not-found.com
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

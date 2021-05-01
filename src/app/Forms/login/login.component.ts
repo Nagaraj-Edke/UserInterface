@@ -22,5 +22,9 @@ export class LoginComponent implements OnInit {
       password:new FormControl(null,[Validators.required/*,Validators.minLength(8)*/])
     })
   }
+  onSubmit(){
+    console.log(this.loginForm.value);
+    
+  }
 
 }

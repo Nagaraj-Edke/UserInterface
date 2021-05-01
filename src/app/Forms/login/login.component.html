@@ -1,55 +1,43 @@
 <body class="backBox">
 
-    <div class="container my-5">
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8 offset=md-1">
-                <div class="Container1">
-                    <img src="../../../assets/bg-01.jpg" alt="LoginImg" width="100%" >
-                    <h1 class="centered">Sign in</h1>
-                </div>
-                <div class="formBox">
-                    <form [formGroup]="loginForm">
-                        <div class="mt-5 mx-5">
-                            <div class="form-group d-flex">
-                                <i class="col-1 fas fa-user fa-2x" style="opacity: 0.8;"></i>&nbsp;&nbsp;
-                                <div class="flex-fill">
-                                <input type="text" [class.is-invalid]="email.invalid&&email.touched" formControlName="email" class="form-control" placeholder="Enter email">
-                                <div class="text-danger" *ngIf="email.invalid&&email.touched">
-                                    <small *ngIf="email.errors.required">email is required</small>
-                                    <small *ngIf="email.errors.email">Enter Valid email</small>
-                                </div></div>
-                            </div>
-
-                            <div class="form-group d-flex">
-                                <i class="col-1 fas fa-lock fa-2x" style="opacity: 0.8;"></i>&nbsp;&nbsp;
-                                <div class="flex-fill">
-                                    <input type="password" [class.is-invalid]="password.invalid&&password.touched" formControlName="password"
-                                        class="form-control" placeholder="Enter password">
-                                    <div class="text-danger" *ngIf="password.invalid&&password.touched">
-                                        <small *ngIf="password.errors.required">passowrd is required</small>
-                                        <!-- <small *ngIf="password.errors.minlength">Enter minimum 8 length charcter</small>                                     -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="button" class="button btn form-control text-white" value="Login">
+     <div class="main pb-5 pt-5" >
+        <div class="container p-4  position" style=" max-width:800px;max-height:auto; margin:100px auto;">
+            <div class="row border p-4 bg-light shadow" style="box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; border-radius: 20px;" >
+                <div class="col-md-6 p-4 col-12 order-md-1  order-2 ">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group w-100 ">
+                            <label for="useremail">Email address </label>
+                            <input type="email" formControlName="email"
+                                [class.is-invalid]="email.invalid && email.touched" class="form-control shadow input-sm"
+                                id="useremail" placeholder="Enter Email" name="email">
+    
+                            <!-- <small *ngIf="invalidEmail" class="text-danger">Invalid Email Please Register</small> -->
+    
+                            <div *ngIf="email.invalid && email.touched && email.errors" class="text-danger pl-1">
+                                <small *ngIf="email.errors.required" >Email Required</small>
+                                <small *ngIf="email.errors.email">Enter Valid email</small>
+    
                             </div>
                         </div>
+
+                        <div class="form-group w-100">
+                            <label for="userPassword">Password</label>
+                            <input type="password" [class.is-invalid]="password.invalid && password.touched" class="form-control shadow" formControlName="password" id="userPassword" placeholder="Password">
+                            <div class="text-danger" *ngIf="password.invalid && password.touched">
+                                <small *ngIf="passowrd.errors.required">password is required</small>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                        <button routerLink="/register" class="btn btn-success ml-md-2 pt-sm-1 ml-1 mt-md-0 mt-0">Register</button>
+    
                     </form>
-
-                    <div class="mt-2 mx-5 text-right">
-                        <a routerLink="/forgot-password">Forgot password?</a>
-                    </div>
-
-                    <div class="mx-5 text-center">
-                        <a routerLink="/register">Create an account <small class="fas fa-arrow-right"></small></a>
-                    </div>
+                </div>
+                <div class="shadow col-md-6  col-12 order-md-2 order-1 backup d-flex align-items-end" style="border-radius: 25px;">
+                    <p class="text-light font-weight-bolder" style="font-size: 30px;">Hello <br> Welcome <br> Back</p>
                 </div>
             </div>
         </div>
-    </div>
-
+    </div> 
+    
 </body>
+
