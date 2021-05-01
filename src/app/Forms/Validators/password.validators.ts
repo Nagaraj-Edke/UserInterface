@@ -1,12 +1,12 @@
 import { AbstractControl } from "@angular/forms";
 
 
-export function passwordValidators(control:AbstractControl):{[key:string]:boolean} {
+export function passwordValidators(control:AbstractControl):{[key:string]:boolean}|null {
     const password = control.get('password');
     const confirmPassword = control.get("confirmPassword");
     if(password.pristine || confirmPassword.pristine){
-        return {"misMatch":false};
+        return null;
     }   
     
-    return (password && confirmPassword && (password.value == confirmPassword.value))? {"misMatch":false} : {"misMatch":true}
+    return (password && confirmPassword && (password.value == confirmPassword.value))? null : {"misMatch":true}
 }

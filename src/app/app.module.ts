@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './Forms/forgot-password/forgot-password.component';
 import { PageNotFoundComponent } from './Forms/page-not-found/page-not-found.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { PageNotFoundComponent } from './Forms/page-not-found/page-not-found.com
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

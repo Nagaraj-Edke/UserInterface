@@ -11,23 +11,25 @@
                     <h1 class="title mb-5 text-center form-check-label text-dark">Sign Up</h1>
                     
                     <div class="form-group">
-                        <label class="form-label">First name</label>
+                        <label class="form-label">First name <b class="text-danger">*</b></label>
                         <input type="text" [class.is-invalid]="firstname.invalid&&firstname.touched"
                             formControlName="firstname" class="form-control" placeholder="Enter first name">
                         <div class="text-danger" *ngIf="firstname.invalid&&firstname.touched">
                             <small *ngIf="firstname.errors.required">First name is required</small>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Last name</label>
+                        <label class="form-label">Last name <b class="text-danger">*</b></label>
                         <input type="text" [class.is-invalid]="lastname.invalid&&lastname.touched"
                             formControlName="lastname" class="form-control" placeholder="Enter last name">
                         <div class="text-danger" *ngIf="lastname.invalid&&lastname.touched">
                             <small *ngIf="lastname.errors.required">Last name is required</small>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Email</label>
+                        <label class="form-label">Email <b class="text-danger">*</b></label>
                         <input type="email" [class.is-invalid]="email.invalid&&email.touched" formControlName="email"
                             class="form-control" placeholder="Enter email">
                         <div class="text-danger" *ngIf="email.invalid&&email.touched">
@@ -35,8 +37,9 @@
                             <small *ngIf="email.errors.email">Enter email correctly</small>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Password</label>
+                        <label class="form-label">Password<b class="text-danger">*</b></label>
                         <input type="password" [class.is-invalid]="password.invalid&&password.touched"
                             formControlName="password" class="form-control" placeholder="Enter password">
                         <div class="text-danger" *ngIf="password.invalid&&password.touched">
@@ -44,8 +47,9 @@
                             <small *ngIf="password.errors.minlength">password has minimum 8 length characters</small>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Confirm Password</label>
+                        <label class="form-label">Confirm Password<b class="text-danger">*</b></label>
                         <input type="password" [class.is-invalid]="(confirmPassword.invalid&&confirmPassword.touched) ||registerForm.errors?.misMatch"
                             formControlName="confirmPassword" class="form-control" placeholder="Enter confirm password">
                            
@@ -53,8 +57,10 @@
                             <small *ngIf="confirmPassword.errors?.required">confirm password is required</small>
                             <small *ngIf="registerForm.errors.misMatch"> password do not match</small>
                         </div>
-
-
+                    </div>
+                    <div class="form-group">
+                        <label>Phone number</label>
+                        <input type="String" formControlname="phoneNo" class="form-control" placeholder="Enter phone number (This is optional Field)">
                     </div>
                     <br>
                     <div class="text-right">
@@ -62,7 +68,7 @@
                     </div>
                     <br>
                     <div class="align-items-center form-group">
-                        <button type="submit" class="btn btn-color text-white form-submit col-md-12">Register</button>
+                        <button type="submit" class="btn btn-color text-white form-submit col-md-12" [disabled]="register.invalid">Register</button>
                     </div>
                 </form>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DatabaseService } from 'src/app/Service/database.service';
 import { passwordValidators } from '../Validators/password.validators';
 
 @Component({
@@ -9,7 +10,7 @@ import { passwordValidators } from '../Validators/password.validators';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:DatabaseService) { }
   registerForm:FormGroup;
 
   get firstname(){
@@ -32,15 +33,28 @@ export class RegisterComponent implements OnInit {
   }
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      firstname :new FormControl(null,[Validators.required]),
-      lastname:new FormControl(null,[Validators.required]),
-      email:new FormControl(null,[Validators.required,Validators.email]),
+      firstname :new FormControl('',[Validators.required]),
+      lastname:new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required,Validators.email]),
       password:new FormControl('',[Validators.required,Validators.minLength(8)]),
-      confirmPassword:new FormControl('',[Validators.required])
+      confirmPassword:new FormControl('',[Validators.required]),
+      phoneNo:new FormControl('')
     },{ validators: passwordValidators})
   }
   onSubmit(){
+
+    if(this.registerForm.invalid){
+      console.log("invalid");
+      
+    }
+    else{
     console.log(this.registerForm.value);
+    this.service.enroll(this.registerForm.value).subscribe(res=>{
+      console.log(res);     
+    },err=>{console.log(err);
+    })
+
+    }
     
   }
 
